@@ -11,6 +11,7 @@ public class Main {
         mainWindow.setSize(800, 800);
         mainWindow.setVisible(true);
         mainWindow.setLocationRelativeTo(null);
+        mainWindow.setResizable(false);
     }
 
     public static void main(String[] args) {
