@@ -59,24 +59,22 @@ public class DrawCrosh {
         g2.draw(gp1);
         //нога левая
         GeneralPath gp2 = new GeneralPath();
+        g2.setColor(c1);
+        //g2.drawOval(400, 548, 3, 3);
+        gp2.moveTo(400, 550);
+        gp2.curveTo(400, 550, 385, 560, 395, 575);
+        gp2.curveTo(395, 575, 440, 595, 465, 585);
+        gp2.curveTo(465, 585, 480, 575, 460, 560);
+        gp2.curveTo(460, 560, 440, 550, 420, 547);
+        gp2.curveTo(420, 547, 410, 548, 400, 550);
+        g2.fill(gp2);
         g2.setColor(c2);
-        g2.drawOval();
-//        gp2.moveTo(263, 420);
-//        gp2.curveTo(265, 420, 215, 430, 210, 480);
-//        gp2.curveTo(210, 480, 220, 510, 250, 490);
-//        gp2.curveTo(250, 490, 260, 470, 267, 455);
-//        gp2.curveTo(267, 455, 267, 450, 265, 420);
-//        g2.fill(gp2);
-//        g2.setColor(c2);
-//        gp2.curveTo(265, 420, 215, 430, 210, 480);
-//        gp2.curveTo(210, 480, 220, 510, 247, 490);
-//        gp2.curveTo(250, 490, 260, 470, 267, 455);
-//        gp2.curveTo(267, 455, 267, 450, 265, 420);
-//        gp2.moveTo(210, 482);
-//        gp2.lineTo(227, 469);
-//        gp2.moveTo(227, 495);
-//        gp2.lineTo(237, 480);
-//        g2.draw(gp2);
+        gp2.curveTo(400, 550, 385, 560, 395, 575);
+        gp2.curveTo(395, 575, 440, 595, 465, 585);
+        gp2.curveTo(465, 585, 480, 575, 460, 560);
+        gp2.curveTo(460, 560, 440, 550, 420, 547);
+        gp2.curveTo(420, 547, 410, 548, 400, 550);
+        g2.draw(gp2);
     }
 
     public void draw(Graphics2D g2) {
