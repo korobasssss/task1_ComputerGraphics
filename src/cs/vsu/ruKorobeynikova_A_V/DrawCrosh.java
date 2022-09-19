@@ -16,8 +16,7 @@ public class DrawCrosh {
     }
 
     private void drawHandsAndFeet(Graphics2D g2) {
-        //g2.fillOval(480, 485, 10, 10);
-        //g2.drawArc(425, 490, 130, 130, 0, 90);
+        //рука правая
         g2.setColor(c1);
         GeneralPath gp = new GeneralPath();
         gp.moveTo(480, 485);
@@ -38,6 +37,46 @@ public class DrawCrosh {
         gp.moveTo(527, 556);
         gp.lineTo(517, 542);
         g2.draw(gp);
+
+        //рука левая
+        g2.setColor(c1);
+        GeneralPath gp1 = new GeneralPath();
+        gp1.moveTo(263, 420);
+        gp1.curveTo(265, 420, 215, 430, 210, 480);
+        gp1.curveTo(210, 480, 220, 510, 250, 490);
+        gp1.curveTo(250, 490, 260, 470, 267, 455);
+        gp1.curveTo(267, 455, 267, 450, 265, 420);
+        g2.fill(gp1);
+        g2.setColor(c2);
+        gp1.curveTo(265, 420, 215, 430, 210, 480);
+        gp1.curveTo(210, 480, 220, 510, 247, 490);
+        gp1.curveTo(250, 490, 260, 470, 267, 455);
+        gp1.curveTo(267, 455, 267, 450, 265, 420);
+        gp1.moveTo(210, 482);
+        gp1.lineTo(227, 469);
+        gp1.moveTo(227, 495);
+        gp1.lineTo(237, 480);
+        g2.draw(gp1);
+        //нога левая
+        GeneralPath gp2 = new GeneralPath();
+        g2.setColor(c2);
+        g2.drawOval();
+//        gp2.moveTo(263, 420);
+//        gp2.curveTo(265, 420, 215, 430, 210, 480);
+//        gp2.curveTo(210, 480, 220, 510, 250, 490);
+//        gp2.curveTo(250, 490, 260, 470, 267, 455);
+//        gp2.curveTo(267, 455, 267, 450, 265, 420);
+//        g2.fill(gp2);
+//        g2.setColor(c2);
+//        gp2.curveTo(265, 420, 215, 430, 210, 480);
+//        gp2.curveTo(210, 480, 220, 510, 247, 490);
+//        gp2.curveTo(250, 490, 260, 470, 267, 455);
+//        gp2.curveTo(267, 455, 267, 450, 265, 420);
+//        gp2.moveTo(210, 482);
+//        gp2.lineTo(227, 469);
+//        gp2.moveTo(227, 495);
+//        gp2.lineTo(237, 480);
+//        g2.draw(gp2);
     }
 
     public void draw(Graphics2D g2) {
