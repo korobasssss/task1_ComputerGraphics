@@ -76,7 +76,7 @@ public class DrawBackground extends JPanel {
 
     public void draw(Graphics2D g2) {
         //рисуем небо
-        drawSky(g2);
+        //drawSky(g2);
 
         //рисуем "землю"
         drawCurve(g2);
