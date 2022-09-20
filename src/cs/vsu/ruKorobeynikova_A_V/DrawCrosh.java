@@ -7,7 +7,11 @@ import java.awt.geom.GeneralPath;
 public class DrawCrosh {
     Color c1 = new Color(143, 235, 246
     );
-    Color c2 = new Color(29, 145, 144);
+    Color c2 = new Color(35, 143, 166);
+    Color c3 = new Color(245, 110, 139);
+    Color c4 = new Color(45, 102, 148);
+    Color c5 = new Color(239, 89, 69, 255);
+
 
     private void drawBody(Graphics2D g2) {
         g2.setColor(c1);
@@ -18,7 +22,6 @@ public class DrawCrosh {
     }
 
     private void drawHandsAndFeetAndEars(Graphics2D g2) {
-        g2.setStroke(new BasicStroke(4.6F));
         //рука правая
         g2.setColor(c1);
         GeneralPath gp = new GeneralPath();
@@ -93,9 +96,44 @@ public class DrawCrosh {
         g2.fillOval(426, 371, 17, 22);
         g2.setTransform(old);
         //рисуем нос
-        Color c = new Color(245, 110, 139);
-        g2.setColor(c);
-        g2.fillOval(377, 393, 27, 27);
+        g2.setColor(c5);
+        g2.fillOval(377, 393, 29, 27);
+        //брови
+        g2.setColor(c4);
+        g2.rotate(0.4f, 360, 300);
+        g2.setStroke(new BasicStroke(12F));
+        g2.drawArc(375, 285, 20, 10, 30, 140);
+        g2.drawArc(430, 270, 20, 10, 30, 140);
+        g2.setTransform(old);
+        g2.setStroke(new BasicStroke(5F));
+    }
+
+    private void drawMouth(Graphics2D g2) {
+        //полоска снизу носа и рот (без зубов)
+        g2.setColor(c2);
+        g2.drawLine(383, 419, 377, 435);
+        //язык
+        g2.setColor(c5);
+        g2.fillOval(385, 459, 30, 30);
+        //зубы
+        AffineTransform old = g2.getTransform();
+        g2.rotate(0.4f);
+        g2.setColor(Color.white);
+        g2.fillRect(500, 260, 38, 38);
+        g2.setColor(c4);
+        g2.setStroke(new BasicStroke(3F));
+        g2.drawRect(500, 260, 38, 38);
+        g2.drawLine(519, 264, 519, 296);
+        g2.setTransform(old);
+        //"рот"
+        g2.setColor(c2);
+        GeneralPath gp = new GeneralPath();
+        gp.moveTo(330, 430);
+        gp.curveTo(330, 430, 377, 430, 430, 475);
+        gp.curveTo(430, 475, 377, 430, 330, 430);
+        gp.closePath();
+        g2.draw(gp);
+
     }
 
     public void draw(Graphics2D g2) {
@@ -107,5 +145,8 @@ public class DrawCrosh {
 
         //рисуем глаза, нос
         drawEyesAndNose(g2);
+
+        //рисуем рот и область между носом и ртом
+        drawMouth(g2);
     }
 }
