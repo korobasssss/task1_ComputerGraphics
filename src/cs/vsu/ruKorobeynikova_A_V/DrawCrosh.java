@@ -109,30 +109,44 @@ public class DrawCrosh {
     }
 
     private void drawMouth(Graphics2D g2) {
-        //полоска снизу носа и рот (без зубов)
+        //полоска снизу носа
         g2.setColor(c2);
         g2.drawLine(383, 419, 377, 435);
-        //язык
-        g2.setColor(c5);
-        g2.fillOval(385, 459, 30, 30);
+        g2.setStroke(new BasicStroke(3F));
+        //"рот"
+        g2.setColor(c2);
+        GeneralPath gp = new GeneralPath();
+        gp.moveTo(330, 430);
+        gp.curveTo(330, 430, 377, 430, 430, 475);
+        //gp.curveTo(430, 475, 377, 430, 330, 430);
+        gp.curveTo(430, 475, 415, 480, 405, 485);
+        g2.setColor(c3);
+        g2.fill(gp);
+        g2.setColor(c2);
+        gp.closePath();
+        g2.draw(gp);
         //зубы
         AffineTransform old = g2.getTransform();
         g2.rotate(0.4f);
         g2.setColor(Color.white);
         g2.fillRect(500, 260, 38, 38);
         g2.setColor(c4);
-        g2.setStroke(new BasicStroke(3F));
+
         g2.drawRect(500, 260, 38, 38);
         g2.drawLine(519, 264, 519, 296);
         g2.setTransform(old);
-        //"рот"
-        g2.setColor(c2);
-        GeneralPath gp = new GeneralPath();
-        gp.moveTo(330, 430);
-        gp.curveTo(330, 430, 377, 430, 430, 475);
-        gp.curveTo(430, 475, 377, 430, 330, 430);
-        gp.closePath();
-        g2.draw(gp);
+//        //"рот"
+//        g2.setColor(c2);
+//        GeneralPath gp = new GeneralPath();
+//        gp.moveTo(330, 430);
+//        gp.curveTo(330, 430, 377, 430, 430, 475);
+//        //gp.curveTo(430, 475, 377, 430, 330, 430);
+//        gp.curveTo(430, 475, 415, 480, 405, 485);
+//        g2.setColor(c3);
+//        g2.fill(gp);
+//        g2.setColor(c2);
+//        gp.closePath();
+//        g2.draw(gp);
 
     }
 
