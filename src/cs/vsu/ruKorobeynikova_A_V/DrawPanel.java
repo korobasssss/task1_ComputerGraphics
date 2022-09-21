@@ -1,9 +1,9 @@
 package cs.vsu.ruKorobeynikova_A_V;
 
+import cs.vsu.ruKorobeynikova_A_V.backGround.DrawBackground;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.GeneralPath;
-import java.awt.geom.Path2D;
 
 public class DrawPanel extends JPanel {
 
