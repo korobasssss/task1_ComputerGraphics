@@ -7,7 +7,6 @@ public class DrawRightHand {
     private int y;
 
     public void drawRHand (Graphics2D g2) {
-
         g2.setStroke(new BasicStroke(5F));
         Color c1 = new Color(143, 235, 246);
         Color c2 = new Color(35, 143, 166);

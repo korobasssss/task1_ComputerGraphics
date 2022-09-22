@@ -9,25 +9,27 @@ import javax.swing.*;
 import java.awt.*;
 
 public class DrawPanel extends JPanel {
-    private final DrawClouds clouds;
-    private final DrawRightHand hand;
+    private final DrawClouds clouds = new DrawClouds(0);
+    private final DrawRightHand hand = new DrawRightHand();
     Timer timerForClouds;
     Timer timerForHand;
+
     public DrawPanel() {
-        clouds = new DrawClouds(0);
-        hand = new DrawRightHand();
         //анимация облаков по таймеру
         timerForClouds = new Timer(100, e -> {
             if (clouds.getX() == 0) clouds.setX(-1000);
             clouds.setX(clouds.getX() + 1);
             repaint();
         });
+
+        //анимация руки по таймеру
         timerForHand = new Timer(2000, e -> {
             if (hand.getY() == 0) hand.setY(-50);
             else hand.setY(0);
             repaint();
         });
     }
+
     private void drawSky(Graphics2D g2) {
         Color c1 = new Color(134, 239, 237);
         Color c2 = new Color(231, 253, 253);
@@ -41,6 +43,7 @@ public class DrawPanel extends JPanel {
     public void paint(Graphics g) {
         timerForClouds.start();
         timerForHand.start();
+
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
 

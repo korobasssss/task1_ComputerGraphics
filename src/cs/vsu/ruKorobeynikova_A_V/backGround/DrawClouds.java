@@ -1,7 +1,5 @@
 package cs.vsu.ruKorobeynikova_A_V.backGround;
 
-import cs.vsu.ruKorobeynikova_A_V.DrawPanel;
-
 import javax.swing.*;
 import java.awt.*;
 
