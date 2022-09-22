@@ -6,13 +6,13 @@ import java.awt.geom.GeneralPath;
 
 public class DrawBackground extends JPanel {
 
-    private void drawSky(Graphics2D g2) {
-        Color c1 = new Color(117, 239, 236);
-        g2.setPaint(new LinearGradientPaint(0, 0, 0, getHeight(),
-                new float[]{0.1f, 0.6f},
-                new Color[]{c1, Color.WHITE}));
-        g2.fillRect(0, 0, getWidth(),getHeight());
-    }
+//    public void drawSky(Graphics2D g2) {
+//        Color c1 = new Color(117, 239, 236);
+//        g2.setPaint(new LinearGradientPaint(0, 0, 0, getHeight(),
+//                new float[]{0.1f, 0.6f},
+//                new Color[]{c1, Color.WHITE}));
+//        g2.fillRect(0, 0, getWidth(),getHeight());
+//    }
 
     private void drawCurve(Graphics2D g2) {
         Color c1 = new Color(240, 234, 127);
@@ -47,7 +47,5 @@ public class DrawBackground extends JPanel {
         //рисуем "землю"
         drawCurve(g2);
 
-        //рисуем облака
-        DrawClouds.drawClouds(g2, 0, 0);
     }
 }
