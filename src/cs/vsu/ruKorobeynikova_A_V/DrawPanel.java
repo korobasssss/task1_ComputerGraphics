@@ -24,7 +24,9 @@ public class DrawPanel extends JPanel {
 
         //анимация руки по таймеру
         timerForHand = new Timer(2000, e -> {
-            if (hand.getY() == 0) hand.setY(-50);
+            if (hand.getY() == 0) {
+                hand.setY(-50);
+            }
             else hand.setY(0);
             repaint();
         });
@@ -46,6 +48,7 @@ public class DrawPanel extends JPanel {
 
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         //рисуем небо
         drawSky(g2);
@@ -63,6 +66,11 @@ public class DrawPanel extends JPanel {
 
         //рисуем анимированную руку
         hand.drawRHand(g2);
+
+        //добавляем слова
+        g2.setColor(Color.BLACK);
+        g2.setFont(g.getFont().deriveFont(20f));
+        if (hand.getY() == -50) g2.drawString("HELLO EVERYONE", 550, 400);
     }
 }
 
