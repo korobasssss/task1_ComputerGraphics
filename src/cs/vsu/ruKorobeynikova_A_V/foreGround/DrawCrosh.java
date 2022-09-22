@@ -1,12 +1,11 @@
-package cs.vsu.ruKorobeynikova_A_V;
+package cs.vsu.ruKorobeynikova_A_V.foreGround;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 
 public class DrawCrosh {
-    Color c1 = new Color(143, 235, 246
-    );
+    Color c1 = new Color(143, 235, 246);
     Color c2 = new Color(35, 143, 166);
     Color c3 = new Color(245, 110, 139);
     Color c4 = new Color(45, 102, 148);
@@ -22,30 +21,14 @@ public class DrawCrosh {
     }
 
     private void drawHandsAndFeetAndEars(Graphics2D g2) {
-        //рука правая
-        g2.setColor(c1);
         GeneralPath gp = new GeneralPath();
-        gp.moveTo(480, 485);
-        gp.curveTo(480, 485, 540, 480, 545, 540);
-        gp.curveTo(550, 540, 527, 580, 505, 550);
-        gp.curveTo(505, 550, 505, 520, 480, 502);
-        gp.curveTo(480, 502, 465, 487, 480, 485);
-        //пальцы
-        gp.moveTo(542, 549);
-        gp.lineTo(530, 532);
-        gp.moveTo(527, 556);
-        gp.lineTo(517, 542);
+        g2.setColor(c1);
         //рука левая
         gp.moveTo(263, 420);
         gp.curveTo(265, 420, 215, 430, 210, 480);
         gp.curveTo(210, 480, 220, 510, 250, 490);
         gp.curveTo(250, 490, 260, 470, 267, 455);
         gp.curveTo(267, 455, 267, 450, 265, 420);
-        //пальцы
-        gp.moveTo(210, 482);
-        gp.lineTo(227, 469);
-        gp.moveTo(227, 495);
-        gp.lineTo(237, 480);
         //нога правая
         gp.moveTo(395, 550);
         gp.curveTo(395, 550, 385, 560, 395, 575);
@@ -118,7 +101,6 @@ public class DrawCrosh {
         GeneralPath gp = new GeneralPath();
         gp.moveTo(330, 430);
         gp.curveTo(330, 430, 377, 430, 430, 475);
-        //gp.curveTo(430, 475, 377, 430, 330, 430);
         gp.curveTo(430, 475, 415, 480, 405, 485);
         g2.setColor(c3);
         g2.fill(gp);
@@ -130,23 +112,11 @@ public class DrawCrosh {
         g2.rotate(0.4f);
         g2.setColor(Color.white);
         g2.fillRect(500, 260, 38, 38);
-        g2.setColor(c4);
+        g2.setColor(c2);
 
         g2.drawRect(500, 260, 38, 38);
         g2.drawLine(519, 264, 519, 296);
         g2.setTransform(old);
-//        //"рот"
-//        g2.setColor(c2);
-//        GeneralPath gp = new GeneralPath();
-//        gp.moveTo(330, 430);
-//        gp.curveTo(330, 430, 377, 430, 430, 475);
-//        //gp.curveTo(430, 475, 377, 430, 330, 430);
-//        gp.curveTo(430, 475, 415, 480, 405, 485);
-//        g2.setColor(c3);
-//        g2.fill(gp);
-//        g2.setColor(c2);
-//        gp.closePath();
-//        g2.draw(gp);
 
     }
 

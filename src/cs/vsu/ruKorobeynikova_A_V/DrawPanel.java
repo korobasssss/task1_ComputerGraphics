@@ -2,21 +2,29 @@ package cs.vsu.ruKorobeynikova_A_V;
 
 import cs.vsu.ruKorobeynikova_A_V.backGround.DrawBackground;
 import cs.vsu.ruKorobeynikova_A_V.backGround.DrawClouds;
+import cs.vsu.ruKorobeynikova_A_V.foreGround.DrawCrosh;
+import cs.vsu.ruKorobeynikova_A_V.foreGround.DrawRightHand;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class DrawPanel extends JPanel {
     private final DrawClouds clouds;
-    Timer timer;
-
+    private final DrawRightHand hand;
+    Timer timerForClouds;
+    Timer timerForHand;
     public DrawPanel() {
         clouds = new DrawClouds(0);
+        hand = new DrawRightHand();
         //анимация облаков по таймеру
-        timer = new Timer(50, e -> {
-            System.out.println(clouds.getX());
-            if (clouds.getX() == 0) clouds.setX(-getWidth());
+        timerForClouds = new Timer(100, e -> {
+            if (clouds.getX() == 0) clouds.setX(-1000);
             clouds.setX(clouds.getX() + 1);
+            repaint();
+        });
+        timerForHand = new Timer(2000, e -> {
+            if (hand.getY() == 0) hand.setY(-50);
+            else hand.setY(0);
             repaint();
         });
     }
@@ -31,7 +39,8 @@ public class DrawPanel extends JPanel {
 
     @Override
     public void paint(Graphics g) {
-        timer.start();
+        timerForClouds.start();
+        timerForHand.start();
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
 
@@ -48,6 +57,9 @@ public class DrawPanel extends JPanel {
         //рисуем кроша
         DrawCrosh dc = new DrawCrosh();
         dc.draw(g2);
+
+        //рисуем анимированную руку
+        hand.drawRHand(g2);
     }
 }
 
