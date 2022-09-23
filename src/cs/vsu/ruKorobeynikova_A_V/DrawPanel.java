@@ -9,16 +9,38 @@ import javax.swing.*;
 import java.awt.*;
 
 public class DrawPanel extends JPanel {
-    private final DrawClouds clouds = new DrawClouds(0);
     private final DrawRightHand hand = new DrawRightHand();
+
     Timer timerForClouds;
     Timer timerForHand;
 
+    DrawClouds firstCloud = new DrawClouds(0, 200);
+    DrawClouds secondCloud = new DrawClouds(100, 40);
+    DrawClouds thirdCloud = new DrawClouds(200, 50);
+    DrawClouds fourthCloud = new DrawClouds(500, 120);
+    DrawClouds fifthsCloud = new DrawClouds(705, 200);
+
     public DrawPanel() {
         //анимация облаков по таймеру
-        timerForClouds = new Timer(100, e -> {
-            if (clouds.getX() == 0) clouds.setX(-1000);
-            clouds.setX(clouds.getX() + 1);
+        timerForClouds = new Timer(10, e -> {
+            if(firstCloud.getX() >= 800) {
+                secondCloud.setX(-100);
+            } else if (secondCloud.getX() >= 800){
+                firstCloud.setX(-100);
+            } else if (thirdCloud.getX() >= 800) {
+                thirdCloud.setX(-100);
+            } else if (fourthCloud.getX() >= 800) {
+                fourthCloud.setX(-100);
+            } else if (fifthsCloud.getX() > 800) {
+                fifthsCloud.setX(-100);
+            }
+
+            firstCloud.setX(firstCloud.getX() + 1);
+            secondCloud.setX(secondCloud.getX() + 1);
+            thirdCloud.setX(thirdCloud.getX() + 1);
+            fourthCloud.setX(fourthCloud.getX() + 1);
+            fifthsCloud.setX(fifthsCloud.getX() + 1);
+
             repaint();
         });
 
@@ -54,7 +76,11 @@ public class DrawPanel extends JPanel {
         drawSky(g2);
 
         //облака
-        clouds.drawClouds(g2, getHeight());
+        firstCloud.paint(g2);
+        secondCloud.paint(g2);
+        thirdCloud.paint(g2);
+        fourthCloud.paint(g2);
+        fifthsCloud.paint(g2);
 
         //рисуем оставшийся задний фон
         DrawBackground db = new DrawBackground();
